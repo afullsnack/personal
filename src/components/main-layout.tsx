@@ -51,6 +51,14 @@ const socialsMenuItems = [
   },
 ];
 
+/**
+ * For the navigation menu pullout on mobile make ot interesting with
+ * subtle animations and svg animation
+ * On the main menu should be a normal boring rectangle with gradient blurred out circles
+ * On the Resource menu should be a subtle clipboard outline with a minimalistic animating stars background
+ * On the Socials menu should be an iPhone outline with an iPhone style gradient background, with the menu items layout as app icons
+ */
+
 export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
