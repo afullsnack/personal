@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import profilePic from "../assets/profile-pic.jpeg";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Twitter, Github, Instagram, ExternalLink, Sparkles, ShipWheel, DraftingCompass, Mailbox, LibrarySquare } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import {
   Drawer,
@@ -15,17 +15,17 @@ import {
 const menuItems = [
   {
     title: "Explore",
-    icon: null,
+    icon: <ShipWheel className="h-4 w-4" />,
     href: "/explore",
   },
   {
     title: "Newsletter",
-    icon: null,
+    icon: <Mailbox className="h-4 w-4" />,
     href: "/newsletter",
   },
   {
     title: "Ventures",
-    icon: null,
+    icon: <Sparkles className="h-4 w-4" />,
     href: "/ventures",
   },
 ];
@@ -33,12 +33,12 @@ const menuItems = [
 const resourceMenuItems = [
   {
     title: "Stack",
-    icon: null,
+    icon: <DraftingCompass className="h-4 w-4" />,
     href: "/stack",
   },
   {
     title: "Blog",
-    icon: null,
+    icon: <LibrarySquare className="h-4 w-4" />,
     href: "/blog",
   },
 ];
@@ -46,17 +46,17 @@ const resourceMenuItems = [
 const socialsMenuItems = [
   {
     title: "Twitter",
-    icon: null,
+    icon: <Twitter  className="h-4 w-4"/>,
     href: "https://x.com/afullsnack",
   },
   {
     title: "Instagram",
-    icon: null,
+    icon: <Instagram className="h-4 w-4" />,
     href: "https://instagram.com/afullsnack",
   },
   {
     title: "Github",
-    icon: null,
+    icon: <Github className="h-4 w-4" />,
     href: "https://github.com/afullsnack",
   },
 ];
@@ -167,7 +167,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
             <a
               href={item.href}
               key={item.title}
-              className="flex w-full items-start justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+              className="flex w-full items-center gap-2 justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
             >
               {item.icon}
               {item.title}
@@ -181,7 +181,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
             <a
               href={item.href}
               key={item.title}
-              className="flex w-full items-start justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+              className="flex w-full items-center gap-2 justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
             >
               {item.icon}
               {item.title}
@@ -196,10 +196,13 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
               href={item.href}
               key={item.title}
               target="_blank"
-              className="flex w-full items-start justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+              className="flex group w-full gap-2 items-center justify-between rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
             >
-              {item.icon}
-              {item.title}
+              <span className="flex items-center justify-start gap-2">
+                {item.icon}
+                {item.title}
+              </span>
+              <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100" />
             </a>
           ))}
         </div>
