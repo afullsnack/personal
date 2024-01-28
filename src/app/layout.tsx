@@ -1,9 +1,11 @@
 import "~/styles/globals.css";
 
+import { Twitter } from "lucide-react";
 import { Inter } from "next/font/google";
 import { MainLayout } from "~/components/main-layout";
 import { ThemeProvider } from "~/components/theme-provider";
-import { Twitter } from "lucide-react";
+import { Toaster } from "~/components/ui/sonner";
+import { ThemeToggle } from "~/components/ui/theme-toggle";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,13 +34,26 @@ export default function RootLayout({
         >
           <MainLayout>
             {children}
-            <footer className="grid gap-2 sm:flex items-center justify-center sm:gap-4 p-8 border-t-[.2px] border-gray-400/40">
+            <footer className="grid place-items-center items-center justify-center gap-3 border-t-[.2px] border-gray-800/40 p-8 dark:border-gray-400/40 sm:flex sm:gap-4">
               <div className="flex gap-2 text-xs">
-                Proudly built by <a href="https://twitter.com/afullsnack" className="text-[#FF4A01] flex items-center gap-1"><Twitter color="#FF4A01" className="h-3 w-3" /> afullsnack</a>
+                Proudly built by{" "}
+                <a
+                  href="https://twitter.com/afullsnack"
+                  className="flex items-center gap-1 text-[#FF4A01]"
+                >
+                  <Twitter color="#FF4A01" className="h-3 w-3" /> afullsnack
+                </a>
               </div>
+              <ThemeToggle />
             </footer>
           </MainLayout>
         </ThemeProvider>
+        <Toaster
+          expand={false}
+          position="bottom-center"
+          richColors
+          closeButton
+        />
       </body>
     </html>
   );
