@@ -41,8 +41,7 @@ export default function ExplorePage() {
           </h1>
           <span>
             Full-stack software engineer and product developer obsessed with
-            bringing authentic and useful products that solve real world pain to
-            life.
+            building authentic and useful products that solve real world pain.
           </span>
         </div>
         <div className="flex items-center justify-start gap-4">
@@ -109,15 +108,25 @@ export default function ExplorePage() {
         <div className="mt-20 w-full">
           <CardList
             items={notifications}
-            ctaText="Mark all"
-            ctaUrl="/"
-            listHeader="Notifications"
-            listDescription="List of notifications going on in the system"
+            ctaText="All articles"
+            ctaUrl="/blog"
+            listHeader="Blog"
+            listDescription="Sharing experiences, knowledge and videos on bitcoin & tech"
             className="w-full max-w-full border-zinc-400 bg-transparent dark:border-zinc-800 dark:bg-transparent"
           />
         </div>
         <div className="mt-20 w-full">
           <SubMailList />
+        </div>
+        <div className="mt-20 w-full">
+          <CardList
+            items={notifications}
+            ctaText="All tools"
+            ctaUrl="/stack"
+            listHeader="Stack"
+            listDescription="Software and tools I use regularly"
+            className="w-full max-w-full border-zinc-400 bg-transparent dark:border-zinc-800 dark:bg-transparent"
+          />
         </div>
       </div>
     </main>

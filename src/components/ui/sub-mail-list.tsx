@@ -1,12 +1,13 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "./form";
+import { Form, FormControl, FormField, FormItem } from "./form";
 import { Input } from "./input";
 
 const formSchema = z.object({
@@ -17,6 +18,8 @@ export function SubMailList() {
   // 1. Define the form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    reValidateMode: "onSubmit",
+    shouldUseNativeValidation: false,
     defaultValues: {
       email: "",
     },
@@ -34,6 +37,12 @@ export function SubMailList() {
       ),
     });
   }
+
+  useEffect(() => {
+    if (form.formState.errors.email) {
+      toast.error(form.formState.errors.email?.message);
+    }
+  }, [form.formState.errors.email]);
 
   return (
     <Card className="grid w-full items-center justify-start overflow-hidden p-0 dark:bg-transparent md:flex md:max-h-[180px]">
@@ -59,12 +68,12 @@ export function SubMailList() {
                     <FormControl>
                       <Input
                         type="email"
-                        className="w-full"
+                        className="w-full lg:min-w-[240px]"
                         placeholder="your@email.com"
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
+                    {/* <FormMessage /> */}
                   </FormItem>
                 )}
               />
