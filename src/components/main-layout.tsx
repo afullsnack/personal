@@ -1,9 +1,9 @@
 "use client";
 
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import {
   DraftingCompass,
   ExternalLink,
-  Github,
   Instagram,
   LibrarySquare,
   Mailbox,
@@ -71,7 +71,7 @@ const socialsMenuItems = [
   },
   {
     title: "Github",
-    icon: <Github className="h-4 w-4" />,
+    icon: <GitHubLogoIcon className="h-4 w-4" />,
     href: "https://github.com/afullsnack",
   },
 ];
