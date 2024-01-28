@@ -1,14 +1,29 @@
+"use client";
+
+import {
+  DraftingCompass,
+  ExternalLink,
+  Github,
+  Instagram,
+  LibrarySquare,
+  Mailbox,
+  Menu,
+  ShipWheel,
+  Sparkles,
+  Twitter,
+  X,
+} from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
-import profilePic from "../assets/profile-pic.jpeg";
-import { Menu, X, Twitter, Github, Instagram, ExternalLink, Sparkles, ShipWheel, DraftingCompass, Mailbox, LibrarySquare } from "lucide-react";
 import { Button } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
+import profilePic from "../assets/profile-pic.jpeg";
 import {
   Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
   DrawerClose,
+  DrawerContent,
+  DrawerHeader,
   DrawerTrigger,
 } from "./ui/drawer";
 
@@ -46,7 +61,7 @@ const resourceMenuItems = [
 const socialsMenuItems = [
   {
     title: "Twitter",
-    icon: <Twitter  className="h-4 w-4"/>,
+    icon: <Twitter className="h-4 w-4" />,
     href: "https://x.com/afullsnack",
   },
   {
@@ -76,6 +91,8 @@ const socialsMenuItems = [
 export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const pathname = usePathname();
+
   return (
     <main className="grid h-screen w-screen sm:flex sm:items-center sm:justify-center">
       <header className="flex items-center justify-between border-b-[.3px] border-gray-200/20 px-8 py-6 sm:hidden">
@@ -109,7 +126,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
             className="h-full w-full"
             draggable={false}
           >
-            <div className="mx-auto w-full max-w-sm">
+            <div className="mx-auto w-full max-w-full">
               <DrawerHeader>
                 <div className="flex items-center justify-between border-b-[.3px] border-gray-200/20 px-4 py-4">
                   <div className="flex w-full items-center justify-start space-x-4 rounded-xl shadow-sm">
@@ -137,7 +154,63 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
                   </DrawerClose>
                 </div>
               </DrawerHeader>
-              <div className="p-4 pb-0"></div>
+              <div className="p-4 pb-0">
+                <div className="my-2" />
+                {menuItems.map((item) => (
+                  <a
+                    href={item.href}
+                    key={item.title}
+                    className={cn(
+                      "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
+                      {
+                        "text-[#FF4A01]":
+                          pathname.slice(1) === item.title.toLowerCase(),
+                      },
+                    )}
+                  >
+                    {item.icon}
+                    {item.title}
+                  </a>
+                ))}
+                <div className="my-4" />
+                <span className="px-4 text-xs font-extralight text-slate-300/60">
+                  Resources
+                </span>
+                {resourceMenuItems.map((item) => (
+                  <a
+                    href={item.href}
+                    key={item.title}
+                    className={cn(
+                      "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
+                      {
+                        "text-[#FF4A01]":
+                          pathname.slice(1) === item.title.toLowerCase(),
+                      },
+                    )}
+                  >
+                    {item.icon}
+                    {item.title}
+                  </a>
+                ))}
+                <div className="my-4" />
+                <span className="px-4 text-xs font-extralight text-slate-300/60">
+                  Socials
+                </span>
+                {socialsMenuItems.map((item) => (
+                  <a
+                    href={item.href}
+                    key={item.title}
+                    target="_blank"
+                    className="group flex w-full items-center justify-between gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+                  >
+                    <span className="flex items-center justify-start gap-2">
+                      {item.icon}
+                      {item.title}
+                    </span>
+                    <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100" />
+                  </a>
+                ))}
+              </div>
             </div>
           </DrawerContent>
         </Drawer>
@@ -167,7 +240,13 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
             <a
               href={item.href}
               key={item.title}
-              className="flex w-full items-center gap-2 justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+              className={cn(
+                "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
+                {
+                  "text-[#FF4A01]":
+                    pathname.slice(1) === item.title.toLowerCase(),
+                },
+              )}
             >
               {item.icon}
               {item.title}
@@ -181,7 +260,13 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
             <a
               href={item.href}
               key={item.title}
-              className="flex w-full items-center gap-2 justify-start rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+              className={cn(
+                "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
+                {
+                  "text-[#FF4A01]":
+                    pathname.slice(1) === item.title.toLowerCase(),
+                },
+              )}
             >
               {item.icon}
               {item.title}
@@ -196,7 +281,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
               href={item.href}
               key={item.title}
               target="_blank"
-              className="flex group w-full gap-2 items-center justify-between rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
+              className="group flex w-full items-center justify-between gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]"
             >
               <span className="flex items-center justify-start gap-2">
                 {item.icon}
