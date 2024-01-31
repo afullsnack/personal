@@ -1,6 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
+import { MailCheck } from "lucide-react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -9,12 +10,23 @@ import { Button } from "./button";
 import { Card } from "./card";
 import { Form, FormControl, FormField, FormItem } from "./form";
 import { Input } from "./input";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./tooltip";
 
 const formSchema = z.object({
   email: z.string().email("Input must be a valid email address"),
 });
 
-export function SubMailList() {
+interface ISubMailList {
+  title?: string;
+  subTitle?: string;
+}
+
+export function SubMailList({ title, subTitle }: ISubMailList) {
   // 1. Define the form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,16 +57,18 @@ export function SubMailList() {
   }, [form.formState.errors.email]);
 
   return (
-    <Card className="grid w-full items-center justify-start overflow-hidden p-0 dark:bg-transparent md:flex md:max-h-[180px]">
-      <div className="flex aspect-square max-w-full flex-1 items-center justify-center bg-gradient-to-br from-blue-600 to-orange-500 md:max-w-[180px]">
-        <EnvelopeOpenIcon className="h-8 w-8 text-white" />
+    <Card className="flex w-full flex-col justify-start overflow-hidden p-0 dark:bg-transparent md:max-h-[180px] md:flex-row">
+      <div className="flex aspect-square w-full max-w-full items-center justify-center bg-gradient-to-br from-blue-600 to-orange-600 md:aspect-square md:max-w-[180px] md:flex-1">
+        <EnvelopeOpenIcon className="h-12 w-12 text-white lg:h-8 lg:w-8" />
       </div>
-      <div className="grid flex-1 items-center justify-start gap-1 p-6 md:p-8">
-        <h3>Stay up to date</h3>
+      <div className="flex flex-col items-start justify-start gap-1 p-6 md:flex-1 md:p-8">
+        <h3>{title ? title : "Stay up to date"}</h3>
         <span className="text-xs dark:text-zinc-200/60">
-          Get notified when new products and articles are published
+          {subTitle
+            ? subTitle
+            : "Get notified when new products and articles are published"}
         </span>
-        <div className="mt-4 w-full flex-1">
+        <div className="mt-4 w-full min-w-full flex-1">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -77,9 +91,27 @@ export function SubMailList() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="">
+              <Button
+                type="submit"
+                className="hidden text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black hover:dark:bg-zinc-200 md:flex"
+              >
                 Subscribe
               </Button>
+              <TooltipProvider delayDuration={400}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      type="submit"
+                      className="flex bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black hover:dark:bg-zinc-200 md:hidden"
+                    >
+                      <MailCheck className="h-4 w-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" align="end">
+                    <p>Add your email to the list</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </form>
           </Form>
         </div>
