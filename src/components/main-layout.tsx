@@ -83,6 +83,7 @@ const socialsMenuItems = [
  * On the Resource menu should be a subtle clipboard outline with a minimalistic animating stars background
  * On the Socials menu should be an iPhone outline with an iPhone style gradient background, with the menu items layout as app icons
  */
+
 /**
  * Logo font inspiration: Jomolhari, Renin, Kenia, Judson, KoPub Batang, Lily Script One, Lohit Tamil, Lobster, Milonga, Monofett, Mogra, Modern Antigua, Neonderthaw, Press Start 2p,
  * Rozha One, Vesper Libre, Viaoda Libre, VT323.
