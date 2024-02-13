@@ -29,13 +29,14 @@ export default function VenturePage() {
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
                 <h3 className="text-sm font-normal">Tambori</h3>
-                {/* <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  Long ass explanation of the portfolio item and all, portfolio,
-                  portfolio item and all item and all
-                </p> */}
+                <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
+                  Bitcoin / Lightning infrastructure for institutions, startups
+                  and savvy individuals
+                </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Bitcoin / Lightning</Badge>
+                <Badge variant="secondary">Bitcoin</Badge>
+                <Badge variant="secondary">Lightning</Badge>
                 <Badge variant="secondary">Infrastructure</Badge>
               </div>
             </div>
@@ -57,14 +58,15 @@ export default function VenturePage() {
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
                 <h3 className="text-sm font-normal">Baggit</h3>
-                {/* <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  Long ass explanation of the portfolio item and all, portfolio,
-                  portfolio item and all item and all
-                </p> */}
+                <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
+                  A personal or multi-party multi-sig bitcoin / lightning
+                  savings and payments wallet
+                </p>
               </div>
               <div className="flex flex-wrap gap-2">
                 <Badge variant="secondary">Bitcoin</Badge>
                 <Badge variant="secondary">Payment</Badge>
+                <Badge variant="secondary">Wallet</Badge>
               </div>
             </div>
           </Link>
@@ -85,14 +87,14 @@ export default function VenturePage() {
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
                 <h3 className="text-sm font-normal">Branded</h3>
-                {/* <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  Long ass explanation of the portfolio item and all, portfolio,
-                  portfolio item and all item and all
-                </p> */}
+                <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
+                  Easily manage working with micro influencers to 10x your
+                  customer reach and secure your niche
+                </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Bitcoin</Badge>
-                <Badge variant="secondary">Advertisement</Badge>
+                <Badge variant="secondary">Merketing</Badge>
+                <Badge variant="secondary">Ad</Badge>
                 <Badge variant="secondary">B2B</Badge>
               </div>
             </div>
@@ -100,7 +102,7 @@ export default function VenturePage() {
         </div>
         <div className="mt-20 w-full">
           <SubMailList
-            title="Never miss new ventures or tool"
+            title="Never miss a new venture or tool"
             subTitle="Get notified when a new venture drops"
           />
         </div>
