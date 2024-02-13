@@ -63,7 +63,7 @@ export function SubMailList({ title, subTitle }: ISubMailList) {
       </div>
       <div className="flex flex-col items-start justify-start gap-1 p-6 md:flex-1 md:p-8">
         <h3>{title ? title : "Stay up to date"}</h3>
-        <span className="text-xs dark:text-zinc-200/60">
+        <span className="text-sm dark:text-zinc-200/60">
           {subTitle
             ? subTitle
             : "Get notified when new products and articles are published"}
