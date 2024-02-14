@@ -1,6 +1,7 @@
 import type { AppType } from "next/app";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
 import "../styles/globals.css";
 import { Toaster } from "~/components/ui/sonner";
@@ -17,6 +18,15 @@ const fontSans = FontSans({
 const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
   return (
     <>
+      <Head>
+        <title>afsnk.dev | blog</title>
+        <meta
+          name="description"
+          content="Articles and knowlegde from my experiences"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+      </Head>
       <style jsx global>{`
         :root {
           --font-sans: ${fontSans.style.fontFamily};
