@@ -30,6 +30,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
+          forcedTheme="dark"
           disableTransitionOnChange
         >
           <MainLayout>
