@@ -151,12 +151,12 @@ export default function StackPage() {
             icon: <SiAlacritty className="h-8 w-8" color="white" />,
           },
           {
-            name: "linear",
-            icon: <SiLinear className="h-8 w-8" color="white" />,
-          },
-          {
             name: "github",
             icon: <VscGithub className="h-8 w-8" color="white" />,
+          },
+          {
+            name: "linear",
+            icon: <SiLinear className="h-8 w-8" color="white" />,
           },
         ],
       },
