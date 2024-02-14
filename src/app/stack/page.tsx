@@ -175,7 +175,7 @@ export default function StackPage() {
         </div>
         <div className="mt-5 grid w-full grid-cols-1 items-start justify-start gap-14 lg:max-w-full lg:grid-cols-2 lg:gap-12">
           {stackList.map((item, index) => (
-            <div className="w-full">
+            <div className="w-full" key={index}>
               <StackView title={item?.domain} stack={item?.stack} />
             </div>
           ))}
