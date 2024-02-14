@@ -58,22 +58,30 @@ export function CardList({
           <Badge>Comedic</Badge>
         </div> */}
         <div>
-          {items.map((item, index) => (
-            <Link
-              href={item.url}
-              key={index}
-              className="mb-4 grid grid-cols-[25px_1fr] items-start gap-4 pb-4 last:mb-0 last:pb-0"
-            >
-              {/* <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" /> */}
-              {item.icon}
-              <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">{item.title}</p>
-                <span className="text-muted-foreground text-xs text-zinc-800/60 dark:text-zinc-200/60">
-                  {item.description}
-                </span>
-              </div>
-            </Link>
-          ))}
+          {!!items.length &&
+            items.map((item, index) => (
+              <Link
+                href={item.url}
+                key={index}
+                className="mb-4 grid grid-cols-[25px_1fr] items-start gap-6 pb-4 last:mb-0 last:pb-0"
+              >
+                {/* <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" /> */}
+                {item.icon}
+                <div className="space-y-1">
+                  <p className="text-sm font-medium leading-none">
+                    {item.title}
+                  </p>
+                  <span className="text-muted-foreground text-xs text-zinc-800/60 dark:text-zinc-200/60">
+                    {item.description}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          {!!!items.length && (
+            <h3 className="w-full text-center">
+              There are no items at this time
+            </h3>
+          )}
         </div>
       </CardContent>
       <CardFooter>

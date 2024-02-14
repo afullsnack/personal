@@ -91,7 +91,7 @@ export default function NewsletterPage() {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="text-center text-lg font-medium text-zinc-900 dark:text-white lg:max-w-lg"
+            className="text-center text-lg font-normal text-zinc-900 dark:text-white lg:max-w-lg"
           >
             Signup to a well curated and creatively delivered newsletter to get
             tons of valuable insight on how to level up your skills. Sent out
@@ -105,7 +105,7 @@ export default function NewsletterPage() {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="mt-4 lg:max-w-lg"
+            className="mt-6 lg:max-w-lg"
           >
             <Form {...form}>
               <form

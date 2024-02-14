@@ -3,6 +3,7 @@
 
 import { Button } from "~/components/ui/button";
 import { Copy } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -11,18 +12,24 @@ export default function HomePage() {
         {/* <div className="w-full border border-red-400 p-8"></div> */}
         <div className="grid gap-4">
           <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-[3rem]">
-            About Miracle (<a href="https://afsnk.sh" className="text-[#FF4A01]">afsnk</a>)
+            About Miracle (
+            <a href="https://afsnk.sh" className="text-[#FF4A01]">
+              afsnk
+            </a>
+            )
           </h1>
-          <span>Crafting software goodness, product development, bitcoin enthusiast</span>
+          <span>
+            Crafting software goodness, product development, bitcoin enthusiast
+          </span>
         </div>
-        <div className="grid gap-3">
-          
-        </div>
+        <div className="grid gap-3"></div>
         <div className="flex items-center justify-start gap-4">
           <Button variant="outline">Hire me</Button>
-          <Button variant="secondary" className="gap-2">
-            <Copy className="h-4 w-4" /> E-mail
-          </Button>
+          <Link href="mailto:miraclef60@gmail.com" passHref target="_blank">
+            <Button variant="secondary" className="gap-2">
+              <Copy className="h-4 w-4" /> E-mail
+            </Button>
+          </Link>
         </div>
       </div>
     </main>

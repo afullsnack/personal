@@ -2,31 +2,34 @@ import { BellIcon } from "@radix-ui/react-icons";
 import { Copy } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { FaRust } from "react-icons/fa";
+import { SiDocker, SiTypescript } from "react-icons/si";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { CardList } from "~/components/ui/card-list";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 
 export default function ExplorePage() {
-  const notifications = React.useMemo(() => {
+  const stackPreviewList = React.useMemo(() => {
     return [
       {
-        title: "Your call has been confirmed.",
-        description: "1 hour ago",
-        icon: <BellIcon className="h-8 w-8" />,
-        url: "/",
+        title: "Docker",
+        description: "Containerize your application to run anywhere",
+        icon: <SiDocker className="h-8 w-8" color="white" />,
+        url: "https://www.docker.com/",
       },
       {
-        title: "You have a new message!",
-        description: "1 hour ago",
-        icon: <BellIcon className="h-8 w-8" />,
-        url: "/",
+        title: "Typescript",
+        description:
+          "Strongly typed programming language that builds on JavaScript",
+        icon: <SiTypescript className="h-8 w-8" color="white" />,
+        url: "https://www.typescriptlang.org/",
       },
       {
-        title: "Your subscription is expiring soon!",
-        description: "2 hours ago",
-        icon: <BellIcon className="h-8 w-8" />,
-        url: "/",
+        title: "Rust",
+        description: "Build reliable and efficient software",
+        icon: <FaRust className="h-8 w-8" color="white" />,
+        url: "https://www.rust-lang.org/",
       },
     ];
   }, []);
@@ -48,9 +51,11 @@ export default function ExplorePage() {
           <Link passHref href="/">
             <Button variant="outline">About</Button>
           </Link>
-          <Button variant="secondary" className="gap-2">
-            <Copy className="h-4 w-4" /> E-mail
-          </Button>
+          <Link href="mailto:miraclef60@gmail.com" passHref target="_blank">
+            <Button variant="secondary" className="gap-2">
+              <Copy className="h-4 w-4" /> E-mail
+            </Button>
+          </Link>
         </div>
         <div className="mt-20 grid w-full items-start justify-start gap-6 lg:max-w-lg">
           <h3>New</h3>
@@ -107,7 +112,7 @@ export default function ExplorePage() {
         </div>
         <div className="mt-20 w-full">
           <CardList
-            items={notifications}
+            items={[]}
             ctaText="All articles"
             ctaUrl="/blog"
             listHeader="Blog"
@@ -120,7 +125,7 @@ export default function ExplorePage() {
         </div>
         <div className="mt-20 w-full">
           <CardList
-            items={notifications}
+            items={stackPreviewList}
             ctaText="All tools"
             ctaUrl="/stack"
             listHeader="Stack"
