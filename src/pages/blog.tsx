@@ -1,3 +1,9 @@
+/**
+ * Blog page index that lists all the written blogs title and description with an attached image
+ */
+
+import Link from "next/link";
+
 export default function BlogPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
@@ -7,6 +13,7 @@ export default function BlogPage() {
             Blog
           </h1>
           <span>Blog list</span>
+          <Link href="/posts">Go to post page</Link>
         </div>
       </div>
     </main>
