@@ -21,20 +21,19 @@ import {
   SiReact,
   SiRetool,
   SiSolidity,
-  SiSwift,
   SiTailwindcss,
   SiTypescript,
   SiVite,
   SiZod,
 } from "react-icons/si";
 import { FaRust } from "react-icons/fa";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { BiBoltCircle, BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandVscode, TbCurrencySolana } from "react-icons/tb";
 import { VscGithub } from "react-icons/vsc";
 
 export default function StackPage() {
-  const stackList = useMemo<Record<string, any>[]>(
-    () => [
+  const stackList = useMemo(() => {
+    return [
       {
         domain: "web dev",
         stack: [
@@ -160,9 +159,8 @@ export default function StackPage() {
           },
         ],
       },
-    ],
-    [],
-  );
+    ];
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">

@@ -1,4 +1,3 @@
-import { BellIcon } from "@radix-ui/react-icons";
 import { Copy } from "lucide-react";
 import Link from "next/link";
 import React from "react";

@@ -165,6 +165,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
                       "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
                       {
                         "text-[#FF4A01]":
+                          pathname &&
                           pathname.slice(1) === item.title.toLowerCase(),
                       },
                     )}
@@ -185,6 +186,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
                       "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
                       {
                         "text-[#FF4A01]":
+                          pathname &&
                           pathname.slice(1) === item.title.toLowerCase(),
                       },
                     )}
@@ -245,7 +247,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
                 "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
                 {
                   "text-[#FF4A01]":
-                    pathname.slice(1) === item.title.toLowerCase(),
+                    pathname && pathname.slice(1) === item.title.toLowerCase(),
                 },
               )}
             >
@@ -265,7 +267,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({
                 "flex w-full items-center justify-start gap-2 rounded-md px-4 py-2 text-sm font-light text-white/70 hover:bg-zinc-500/10 hover:text-[#FF4A01]",
                 {
                   "text-[#FF4A01]":
-                    pathname.slice(1) === item.title.toLowerCase(),
+                    pathname && pathname.slice(1) === item.title.toLowerCase(),
                 },
               )}
             >
