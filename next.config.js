@@ -4,14 +4,12 @@
  */
 
 await import("./src/env.js");
-import Nextra from "nextra";
+// import Nextra from "nextra";
+import { withContentlayer } from "next-contentlayer";
 
 /** @type {import("next").NextConfig} */
 // const config = {};
 //
-const withNextra = Nextra({
-  theme: "nextra-theme-blog",
-  themeConfig: "./theme.config.jsx",
-});
+const nextConfig = { reactStrictMode: true, swcMinify: true };
 
-export default withNextra;
+export default withContentlayer(nextConfig);
