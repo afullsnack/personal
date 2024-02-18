@@ -5,7 +5,7 @@ date: 2024-2-15
 description: Fools
 ---
 
-## This is a list of all blog posts
+# This is a list of all blog posts
 
 
 Making the world of tech a little more enjoyable
@@ -15,28 +15,33 @@ Making the world of tech a little more enjoyable
 >>> And we can keep going i think [@afullsnack](https://x.com/afullsnack)
 >>>> OOH [MDX](#hello-mdx "hello mdx")
 
+<br />
 
 1. List comp
 2. Another list
 3. [Link in list](https://tambori.co)
 
-```js showLineNumbers filename="exmaple.js"
+<br />
+<br />
+
+<CH.Code className="w-full">
+```ts state.ts focus=4[17:24],6[33:51]
 import { useState } from 'react'
 
 function Counter() {
   const [count, setCount] = useState(0)
+
+  // mark
   return <button onClick={() => setCount(count + 1)}>{count}</button>
 }
 ```
 
 
+```ts utils.ts
+// from ../src/lib/utils.ts
+```
+</CH.Code>
+<br />
+
 ## Hello MDX
 ### Code
-
-<div className="container">
-<Card className="p-8 mx-auto max-w-fit w-full">
-    <CardTitle>Card titile here</CardTitle>
-    <div>Div element as content wrapper
-    <a href="https://instagram.com/afullsnack" className="font-bold p-2">A fullsnack</a></div>
-</Card>
-</div>

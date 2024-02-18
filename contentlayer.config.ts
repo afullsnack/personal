@@ -1,6 +1,7 @@
 // contentlayer config
 
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { remarkCodeHike } from "@code-hike/mdx";
 
 // Export Article schema
 export const Post = defineDocumentType(() => ({
@@ -27,4 +28,20 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({ contentDirPath: "posts", documentTypes: [Post] });
+export default makeSource({
+  contentDirPath: "posts",
+  documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [
+      [
+        remarkCodeHike,
+        {
+          theme: "dark-plus",
+          lineNumbers: true,
+          showCopyButton: true,
+          autoImport: true,
+        },
+      ],
+    ],
+  },
+});

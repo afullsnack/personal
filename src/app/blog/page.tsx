@@ -18,8 +18,6 @@ export default function BlogPage() {
           <h1 className="text-3xl font-semibold leading-snug tracking-tight sm:text-[3rem]">
             Blog
           </h1>
-          <span>Blog list</span>
-          <Link href="/posts">Go to post page</Link>
         </div>
         <div className="grid gap-2 lg:max-w-lg">
           {posts.map((post: any, idx: number) => (
@@ -37,7 +35,7 @@ const PostCard: FC<Post> = (post) => {
       <h2 className="mb-1 text-xl">
         <Link
           href={post.url}
-          className="text-blue-700 hover:text-blue-900 dark:text-blue-400"
+          className="text-[#FF4A01] hover:text-[#FF4A01]/80"
         >
           {post.title}
         </Link>
