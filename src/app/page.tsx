@@ -6,6 +6,8 @@ import { Copy } from "lucide-react";
 import Link from "next/link";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 
+import CalcomHireButton from "~/components/ui/calcom-hire-button";
+
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-950 to-zinc-900 text-white">
@@ -30,7 +32,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="flex items-center justify-start gap-4">
-          <Button variant="outline">Hire me</Button>
+          <CalcomHireButton />
           <Link href="mailto:miraclef60@gmail.com" passHref target="_blank">
             <Button variant="secondary" className="gap-2">
               <Copy className="h-4 w-4" /> E-mail
