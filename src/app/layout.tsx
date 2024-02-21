@@ -47,6 +47,13 @@ export default function RootLayout({
                 </a>
               </div>
               <ThemeToggle />
+              <a
+                className="libutton"
+                href="https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=miracle-friday-b0587b119"
+                target="_blank"
+              >
+                Follow on LinkedIn
+              </a>
             </footer>
           </MainLayout>
         </ThemeProvider>
