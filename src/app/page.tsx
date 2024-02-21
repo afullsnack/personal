@@ -2,9 +2,10 @@
 // import { ThemeToggle } from "~/components/ui/theme-toggle";
 
 import { Button } from "~/components/ui/button";
-import { Copy } from "lucide-react";
+import { Bitcoin, Copy } from "lucide-react";
 import Link from "next/link";
 import { SubMailList } from "~/components/ui/sub-mail-list";
+import { SiBitcoin } from "react-icons/si";
 
 import CalcomHireButton from "~/components/ui/calcom-hire-button";
 
@@ -21,14 +22,16 @@ export default function HomePage() {
             </a>
             )
           </h1>
-          <span>
-            Crafting software goodness, product development, bitcoin enthusiast
+          <span className="flex">
+            Crafting software goodness, product development,{" "}
+            <SiBitcoin color="#FF4A01" className="mx-1 my-auto h-4 w-4" /> /⚡️
+            enthusiast
           </span>
         </div>
         <div className="flex flex-col items-center justify-start gap-4 lg:max-w-lg">
           <p className="text-sm dark:text-white/60">
             I’m always looking to collaborate on interesting projects with great
-            people. Need a hand? I have two – Nice to meet you!
+            people. Need a hand? I have two – Nice to meet you! 🤝🏽
           </p>
         </div>
         <div className="flex items-center justify-start gap-4">
