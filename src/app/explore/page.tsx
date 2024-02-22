@@ -8,6 +8,13 @@ import { Button } from "~/components/ui/button";
 import { CardList } from "~/components/ui/card-list";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 
+export const metadata = {
+  title: "afullsnack.dev | Explore",
+  description:
+    "afullsnack - explore the latest from my personal experiences and knowledge",
+  icons: [{ rel: "icon", url: "/favicon.svg" }],
+};
+
 export default function ExplorePage() {
   const stackPreviewList = React.useMemo(() => {
     return [

@@ -31,6 +31,12 @@ import { BiBoltCircle, BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandVscode, TbCurrencySolana } from "react-icons/tb";
 import { VscGithub } from "react-icons/vsc";
 
+export const metadata = {
+  title: "afullsnack.dev | Stack",
+  description: "afullsnack - software stack and daily tools",
+  icons: [{ rel: "icon", url: "/favicon.svg" }],
+};
+
 export default function StackPage() {
   const stackList = useMemo(() => {
     return [

@@ -2,6 +2,13 @@ import Link from "next/link";
 import { Badge } from "~/components/ui/badge";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 
+export const metadata = {
+  title: "afullsnack.dev | Ventures",
+  description:
+    "afullsnack - Various ventures, startups and projects I'm involved in",
+  icons: [{ rel: "icon", url: "/favicon.svg" }],
+};
+
 export default function VenturePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">

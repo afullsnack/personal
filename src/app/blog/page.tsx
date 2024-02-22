@@ -7,6 +7,13 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { FC } from "react";
 
+export const metadata = {
+  title: "afullsnack.dev | Blog",
+  description:
+    "afullsnack - read latest blog posts on how you can level up as an engineer or updates on what I'm working on",
+  icons: [{ rel: "icon", url: "/favicon.svg" }],
+};
+
 export default function BlogPage() {
   const posts = allPosts.sort((a: Post, b: Post) =>
     compareDesc(new Date(a.date), new Date(b.date)),
