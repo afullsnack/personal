@@ -1,3 +1,5 @@
+import { Post, allPosts } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
 import { Copy } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -7,6 +9,7 @@ import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import { CardList } from "~/components/ui/card-list";
 import { SubMailList } from "~/components/ui/sub-mail-list";
+import Image from "next/image";
 
 export const metadata = {
   title: "afullsnack.dev | Explore",
@@ -39,6 +42,10 @@ export default function ExplorePage() {
       },
     ];
   }, []);
+
+  const posts = allPosts.sort((a: Post, b: Post) =>
+    compareDesc(new Date(a.date), new Date(b.date)),
+  );
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
@@ -118,7 +125,14 @@ export default function ExplorePage() {
         </div>
         <div className="mt-20 w-full">
           <CardList
-            items={[]}
+            items={posts
+              .splice(0, 3)
+              .map(({ title, description, url, img }) => ({
+                title,
+                description,
+                url,
+                icon: <Image src={img} alt={title} width={32} height={32} />,
+              }))}
             ctaText="All articles"
             ctaUrl="/blog"
             listHeader="Blog"
