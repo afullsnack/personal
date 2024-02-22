@@ -6,12 +6,14 @@ import {
   ExternalLink,
   Instagram,
   LibrarySquare,
+  Linkedin,
   Mailbox,
   Menu,
   ShipWheel,
   Sparkles,
   Twitter,
   X,
+  Youtube,
 } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -73,6 +75,16 @@ const socialsMenuItems = [
     title: "Github",
     icon: <GitHubLogoIcon className="h-4 w-4" />,
     href: "https://github.com/afullsnack",
+  },
+  {
+    title: "Linkedin",
+    icon: <Linkedin className="h-4 w-4" />,
+    href: "https://www.linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=miracle-friday-b0587b119",
+  },
+  {
+    title: "Youtube",
+    icon: <Youtube className="h-4 w-4" />,
+    href: "https://www.youtube.com/@afullsnack",
   },
 ];
 
