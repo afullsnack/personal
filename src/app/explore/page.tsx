@@ -1,4 +1,6 @@
-import { Post, allPosts } from "contentlayer/generated";
+// "use client";
+
+import { type Post, posts } from "@content";
 import { compareDesc } from "date-fns";
 import { Copy } from "lucide-react";
 import Link from "next/link";
@@ -10,6 +12,7 @@ import { Button } from "~/components/ui/button";
 import { CardList } from "~/components/ui/card-list";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 import Image from "next/image";
+// import { BiArrowToBottom } from "react-icons/bi";
 
 export const metadata = {
   title: "afullsnack.dev | Explore",
@@ -18,34 +21,34 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.svg" }],
 };
 
-export default function ExplorePage() {
-  const stackPreviewList = React.useMemo(() => {
-    return [
-      {
-        title: "Docker",
-        description: "Containerize your application to run anywhere",
-        icon: <SiDocker className="h-8 w-8" color="white" />,
-        url: "https://www.docker.com/",
-      },
-      {
-        title: "Typescript",
-        description:
-          "Strongly typed programming language that builds on JavaScript",
-        icon: <SiTypescript className="h-8 w-8" color="white" />,
-        url: "https://www.typescriptlang.org/",
-      },
-      {
-        title: "Rust",
-        description: "Build reliable and efficient software",
-        icon: <FaRust className="h-8 w-8" color="white" />,
-        url: "https://www.rust-lang.org/",
-      },
-    ];
-  }, []);
+const sortedPosts = posts.sort((a: Post, b: Post) =>
+  compareDesc(new Date(a.date), new Date(b.date)),
+);
 
-  const posts = allPosts.sort((a: Post, b: Post) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
+export default function ExplorePage() {
+  const stackPreviewList = [
+    {
+      title: "Docker",
+      description: "Containerize your application to run anywhere",
+      icon: <SiDocker className="h-8 w-8" color="white" />,
+      url: "https://www.docker.com/",
+    },
+    {
+      title: "Typescript",
+      description:
+        "Strongly typed programming language that builds on JavaScript",
+      icon: <SiTypescript className="h-8 w-8" color="white" />,
+      url: "https://www.typescriptlang.org/",
+    },
+    {
+      title: "Rust",
+      description: "Build reliable and efficient software",
+      icon: <FaRust className="h-8 w-8" color="white" />,
+      url: "https://www.rust-lang.org/",
+    },
+  ];
+
+  console.log(posts.length, ":::Posts_explore");
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
@@ -125,14 +128,25 @@ export default function ExplorePage() {
         </div>
         <div className="mt-20 w-full">
           <CardList
-            items={posts
-              .splice(0, 3)
-              .map(({ title, description, url, img }) => ({
-                title,
-                description,
-                url,
-                icon: <Image src={img} alt={title} width={32} height={32} />,
-              }))}
+            items={
+              !!sortedPosts.length
+                ? sortedPosts
+                    .splice(0, 3)
+                    .map(({ title, description, link, img }) => ({
+                      title,
+                      description,
+                      url: link,
+                      icon: (
+                        <Image
+                          src={img!.src}
+                          alt={title}
+                          width={32}
+                          height={32}
+                        />
+                      ),
+                    }))
+                : []
+            }
             ctaText="All articles"
             ctaUrl="/blog"
             listHeader="Blog"

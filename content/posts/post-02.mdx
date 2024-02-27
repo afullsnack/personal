@@ -1,9 +1,10 @@
 ---
 title: Post 02
+slug: post-02
 author: Miracle Friday
 date: 2024-2-15
 description: Fools
-img: /profile-pic.jpeg
+img: ./profile-pic.jpeg
 ---
 
 # This is a list of all blog posts
@@ -25,24 +26,16 @@ Making the world of tech a little more enjoyable
 <br />
 <br />
 
-<CH.Code className="w-full">
-```ts state.ts focus=4[17:24],6[33:51]
+```ts /useState/2 "count"2 title="state.ts" showLineNumbers
 import { useState } from 'react'
 
 function Counter() {
   const [count, setCount] = useState(0)
 
-  // mark
   return <button onClick={() => setCount(count + 1)}>{count}</button>
 }
 ```
 
-
-```ts utils.ts
-// from ../src/lib/utils.ts
-```
-</CH.Code>
 <br />
 
-## Hello MDX
-### Code
+This should highlight `[1,2,3].join('-'){:.ts}` will be `1-2-3`

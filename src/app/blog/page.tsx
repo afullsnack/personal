@@ -2,10 +2,12 @@
  * Blog page index that lists all the written blogs title, date and description with an attached image
  */
 
+// "use client";
+
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
-import { FC } from "react";
+import { posts, type Post } from "@content";
+import { type FC } from "react";
 
 export const metadata = {
   title: "afullsnack.dev | Blog",
@@ -15,9 +17,10 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  const posts = allPosts.sort((a: Post, b: Post) =>
+  const sortedPosts = posts.sort((a: Post, b: Post) =>
     compareDesc(new Date(a.date), new Date(b.date)),
   );
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
       <div className="container mx-auto flex flex-col items-start justify-start gap-6 px-8 py-8 md:px-16 md:py-16 lg:px-32 lg:py-32">
@@ -27,7 +30,7 @@ export default function BlogPage() {
           </h1>
         </div>
         <div className="grid gap-2 lg:max-w-lg">
-          {posts.map((post: any, idx: number) => (
+          {sortedPosts.map((post: Post, idx: number) => (
             <PostCard key={idx} {...post} />
           ))}
         </div>
@@ -36,12 +39,12 @@ export default function BlogPage() {
   );
 }
 
-const PostCard: FC<Post> = (post) => {
+const PostCard: FC<Post> = (post: Post) => {
   return (
     <div className="mb-8">
       <h2 className="mb-1 text-xl">
         <Link
-          href={post.url}
+          href={post.link}
           className="text-[#FF4A01] hover:text-[#FF4A01]/80"
         >
           {post.title}
