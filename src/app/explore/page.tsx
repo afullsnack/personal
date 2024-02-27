@@ -22,11 +22,11 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.svg" }],
 };
 
-const sortedPosts = allPosts.sort((a: Post, b: Post) =>
-  compareDesc(new Date(a.date), new Date(b.date)),
-);
-
 export default function ExplorePage() {
+  const sortedPosts = allPosts.sort((a: Post, b: Post) =>
+    compareDesc(new Date(a.date), new Date(b.date)),
+  );
+
   const stackPreviewList = [
     {
       title: "Docker",
@@ -48,8 +48,6 @@ export default function ExplorePage() {
       url: "https://www.rust-lang.org/",
     },
   ];
-
-  console.log(allPosts.length, ":::Posts_explore");
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
@@ -130,7 +128,7 @@ export default function ExplorePage() {
         <div className="mt-20 w-full">
           <CardList
             items={
-              !!sortedPosts.length
+              sortedPosts.length > 3
                 ? sortedPosts
                     .splice(0, 3)
                     .map(({ title, description, url, img }) => ({
@@ -141,7 +139,14 @@ export default function ExplorePage() {
                         <Image src={img} alt={title} width={32} height={32} />
                       ),
                     }))
-                : []
+                : sortedPosts.map(({ title, description, url, img }) => ({
+                    title,
+                    description,
+                    url,
+                    icon: (
+                      <Image src={img} alt={title} width={32} height={32} />
+                    ),
+                  }))
             }
             ctaText="All articles"
             ctaUrl="/blog"
