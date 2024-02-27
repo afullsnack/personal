@@ -1,8 +1,8 @@
 // app/posts/[slug]/page.tsx
-import { posts, type Post } from "@content";
+import { allPosts, type Post } from "~/content";
 import { format, parseISO } from "date-fns";
 
-import { notFound, useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import MDXContent from "~/components/ui/md-comp";
 import type { Metadata } from "next";
 
@@ -12,15 +12,20 @@ interface PostProps {
   };
 }
 
-// export async function generateStaticParams() {
-//   return allPosts.map((post: Post) => ({
-//     slug: post._raw.flattenedPath,
-//   }));
-// }
-//
+export function generateMetadata({ params }: PostProps): Metadata {
+  const post = getPostBySlug(params.slug);
+  if (!post) return {};
+  return { title: post.title, description: post.description };
+}
+
+export function generateStaticParams(): PostProps["params"][] {
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 function getPostBySlug(slug: string): Post | undefined {
-  return posts.find((post) => post.slug === slug);
+  return allPosts.find((post: Post) => post.slug === slug);
 }
 
 export default function Page({ params }: PostProps) {
@@ -39,22 +44,10 @@ export default function Page({ params }: PostProps) {
           </time>
           <h2 className="mt-1 text-sm">{post.author}</h2>
         </div>
-        <div className="grid gap-2 lg:max-w-lg">
-          <MDXContent code={post.content} />
+        <div className="grid flex-wrap gap-2 lg:max-w-lg">
+          <MDXContent code={post.body.code} />
         </div>
       </div>
     </main>
   );
-}
-
-export function generateMetadata({ params }: PostProps): Metadata {
-  const post = getPostBySlug(params.slug);
-  if (!post) return {};
-  return { title: post.title, description: post.description };
-}
-
-export function generateStaticParams(): PostProps["params"][] {
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
 }

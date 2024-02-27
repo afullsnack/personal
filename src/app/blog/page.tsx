@@ -6,8 +6,9 @@
 
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { posts, type Post } from "@content";
+import { allPosts, type Post } from "~/content";
 import { type FC } from "react";
+// import { useLiveReload } from "next-contentlayer/hooks";
 
 export const metadata = {
   title: "afullsnack.dev | Blog",
@@ -17,7 +18,7 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  const sortedPosts = posts.sort((a: Post, b: Post) =>
+  const sortedPosts = allPosts.sort((a: Post, b: Post) =>
     compareDesc(new Date(a.date), new Date(b.date)),
   );
 
@@ -44,7 +45,7 @@ const PostCard: FC<Post> = (post: Post) => {
     <div className="mb-8">
       <h2 className="mb-1 text-xl">
         <Link
-          href={post.link}
+          href={post.url}
           className="text-[#FF4A01] hover:text-[#FF4A01]/80"
         >
           {post.title}

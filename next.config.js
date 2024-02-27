@@ -4,35 +4,37 @@
  */
 
 await import("./src/env.js");
-import { build } from "velite";
+// import { build } from "velite";
+import { withContentlayer } from "next-contentlayer";
 
 /** @type {import("next").NextConfig} */
-export default {
+export default withContentlayer({
   reactStrictMode: true,
   swcMinify: true,
-  webpack: (config) => {
-    // eslint-disable-next-line
-    config.plugins.push(new VeliteWebpackPlugin());
-    // eslint-disable-next-line
-    return config;
-  },
-};
+  images: { unoptimized: true },
+  // webpack: (config) => {
+  //   // eslint-disable-next-line
+  //   config.plugins.push(new VeliteWebpackPlugin());
+  //   // eslint-disable-next-line
+  //   return config;
+  // },
+});
 
-class VeliteWebpackPlugin {
-  static started = false;
-  constructor(/** @type {import('velite').Options} */ options = {}) {
-    this.options = options;
-  }
-  apply(/** @type {import('webpack').Compiler} */ compiler) {
-    // executed three times in nextjs
-    // twice for the server (nodejs / edge runtime) and once for the client
-    // eslint-disable-next-line
-    compiler.hooks.beforeCompile.tapPromise("VeliteWebpackPlugin", async () => {
-      if (VeliteWebpackPlugin.started) return;
-      VeliteWebpackPlugin.started = true;
-      // eslint-disable-next-line
-      const dev = compiler.options.mode === "development";
-      await build({ watch: dev, clean: !dev });
-    });
-  }
-}
+// class VeliteWebpackPlugin {
+//   static started = false;
+//   constructor(/** @type {import('velite').Options} */ options = {}) {
+//     this.options = options;
+//   }
+//   apply(/** @type {import('webpack').Compiler} */ compiler) {
+//     // executed three times in nextjs
+//     // twice for the server (nodejs / edge runtime) and once for the client
+//     // eslint-disable-next-line
+//     compiler.hooks.beforeCompile.tapPromise("VeliteWebpackPlugin", async () => {
+//       if (VeliteWebpackPlugin.started) return;
+//       VeliteWebpackPlugin.started = true;
+//       // eslint-disable-next-line
+//       const dev = compiler.options.mode === "development";
+//       await build({ watch: dev, clean: !dev });
+//     });
+//   }
+// }

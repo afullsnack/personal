@@ -2,7 +2,7 @@
 // import { ThemeToggle } from "~/components/ui/theme-toggle";
 
 import { Button } from "~/components/ui/button";
-import { Bitcoin, Copy } from "lucide-react";
+import { Copy } from "lucide-react";
 import Link from "next/link";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 import { SiBitcoin } from "react-icons/si";

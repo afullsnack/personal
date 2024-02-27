@@ -13,7 +13,11 @@ export default function CalcomHireButton() {
         hideEventTypeDetails: false,
         layout: "month_view",
       });
-    })();
+    })()
+      .then((val) => console.log(val))
+      .catch((err) =>
+        console.log(err, ":::Error occurred with the calcom button"),
+      );
   }, []);
 
   return (

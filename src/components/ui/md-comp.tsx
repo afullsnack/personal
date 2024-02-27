@@ -3,23 +3,24 @@
 import Link from "next/link";
 import { Card, CardTitle } from "~/components/ui/card";
 import { cn } from "~/lib/utils";
-import * as runtime from "react/jsx-runtime";
-// import { Code } from "@code-hike/mdx/components";
+// import * as runtime from "react/jsx-runtime";
+import { CH } from "@code-hike/mdx/components";
+import { useMDXComponent } from "next-contentlayer/hooks";
 import type { ComponentProps } from "react";
 
 // Define components to add to MDX
 const mdxComponents = {
   Card,
   CardTitle,
-  // Code,
+  CH,
 };
 // Define useMDXComponent hook
-const useMDXComponent = (code: string): JSX.ElementType => {
-  // eslint-disable-next-line
-  const fn = new Function(code);
-  // eslint-disable-next-line
-  return fn({ ...runtime }).default;
-};
+// const useMDXComponent = (code: string): JSX.ElementType => {
+//   // eslint-disable-next-line
+//   const fn = new Function(code);
+//   // eslint-disable-next-line
+//   return fn({ ...runtime }).default;
+// };
 
 type Props = {
   code: string;
@@ -29,7 +30,7 @@ type Props = {
 const MDXContent = ({ code, components }: Props) => {
   const Component = useMDXComponent(code);
   return (
-    <div>
+    <article className="text-wrap grid w-full min-w-full overflow-hidden">
       <Component
         components={{
           ul: (props: ComponentProps<"ul">) => (
@@ -39,19 +40,19 @@ const MDXContent = ({ code, components }: Props) => {
             <ol className="ml-4 list-decimal" {...props} />
           ),
           h1: (props: ComponentProps<"h1">) => (
-            <h1 className="text-5xl" {...props} />
+            <h1 className="my-2 flex-wrap text-5xl font-extrabold" {...props} />
           ),
           h2: (props: ComponentProps<"h2">) => (
-            <h2 className="text-4xl" {...props} />
+            <h2 className="my-2 flex-wrap text-4xl font-bold" {...props} />
           ),
           h3: (props: ComponentProps<"h3">) => (
-            <h3 className="text-3xl" {...props} />
+            <h3 className="my-1 flex-wrap text-3xl font-semibold" {...props} />
           ),
           h4: (props: ComponentProps<"h4">) => (
-            <h4 className="text-2xl" {...props} />
+            <h4 className="my-1 flex-wrap text-2xl font-medium" {...props} />
           ),
           h5: (props: ComponentProps<"h5">) => (
-            <h5 className="text-xl" {...props} />
+            <h5 className="my-1 flex-wrap text-xl font-normal" {...props} />
           ),
           a: ({ href, children, className }: ComponentProps<"a">) => (
             <Link className={cn("text-orange-600", className)} href={href!}>
@@ -62,7 +63,7 @@ const MDXContent = ({ code, components }: Props) => {
           ...components,
         }}
       />
-    </div>
+    </article>
   );
 };
 

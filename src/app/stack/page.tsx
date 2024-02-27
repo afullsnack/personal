@@ -1,5 +1,5 @@
 import { SubMailList } from "~/components/ui/sub-mail-list";
-import { FC, ReactNode, useMemo } from "react";
+import { type FC, type ReactNode, useMemo } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -27,7 +27,7 @@ import {
   SiZod,
 } from "react-icons/si";
 import { FaRust } from "react-icons/fa";
-import { BiBoltCircle, BiLogoPostgresql } from "react-icons/bi";
+import { BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandVscode, TbCurrencySolana } from "react-icons/tb";
 import { VscGithub } from "react-icons/vsc";
 
@@ -198,7 +198,7 @@ export default function StackPage() {
 interface StackViewProps {
   children?: ReactNode;
   title: string;
-  stack: Record<string, any>[];
+  stack: Record<string, React.ReactNode>[];
 }
 const StackView: FC<StackViewProps> = ({ title, stack }) => {
   return (

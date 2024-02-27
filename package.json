@@ -25,11 +25,13 @@
     "@tailwindcss/typography": "^0.5.10",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "contentlayer": "^0.3.4",
     "date-fns": "^3.3.1",
     "embla-carousel-react": "8.0.0-rc22",
     "framer-motion": "^11.0.5",
     "lucide-react": "^0.294.0",
     "next": "^14.0.3",
+    "next-contentlayer": "^0.3.4",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -58,7 +60,7 @@
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.1.6",
-    "velite": "0.1.0-beta.9"
+    "velite": "0.1.0-beta.11"
   },
   "eslintConfig": {
     "extends": "next/core-web-vitals"

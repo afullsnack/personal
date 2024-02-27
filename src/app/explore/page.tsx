@@ -1,6 +1,6 @@
 // "use client";
 
-import { type Post, posts } from "@content";
+import { type Post, allPosts } from "~/content";
 import { compareDesc } from "date-fns";
 import { Copy } from "lucide-react";
 import Link from "next/link";
@@ -12,6 +12,7 @@ import { Button } from "~/components/ui/button";
 import { CardList } from "~/components/ui/card-list";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 import Image from "next/image";
+// import { useLiveReload } from "next-contentlayer/hooks";
 // import { BiArrowToBottom } from "react-icons/bi";
 
 export const metadata = {
@@ -21,7 +22,7 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.svg" }],
 };
 
-const sortedPosts = posts.sort((a: Post, b: Post) =>
+const sortedPosts = allPosts.sort((a: Post, b: Post) =>
   compareDesc(new Date(a.date), new Date(b.date)),
 );
 
@@ -48,7 +49,7 @@ export default function ExplorePage() {
     },
   ];
 
-  console.log(posts.length, ":::Posts_explore");
+  console.log(allPosts.length, ":::Posts_explore");
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-br from-zinc-50 to-zinc-200 text-black dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
@@ -132,17 +133,12 @@ export default function ExplorePage() {
               !!sortedPosts.length
                 ? sortedPosts
                     .splice(0, 3)
-                    .map(({ title, description, link, img }) => ({
+                    .map(({ title, description, url, img }) => ({
                       title,
                       description,
-                      url: link,
+                      url,
                       icon: (
-                        <Image
-                          src={img!.src}
-                          alt={title}
-                          width={32}
-                          height={32}
-                        />
+                        <Image src={img} alt={title} width={32} height={32} />
                       ),
                     }))
                 : []
