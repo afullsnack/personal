@@ -44,3 +44,6 @@ yarn-error.log*
 
 # contentlayer
 .contentlayer
+
+# content drafts
+content/drafts

@@ -1,18 +1,87 @@
 ---
 title: My First Post
 author: Miracle Friday
-date: 2024-2-18
-description: Retrying the contentlayer custom content management
+date: 2024-2-28
+description: Personal content management with MDX and Contentlayer
 img: /profile-pic.jpeg
 ---
 
-Ullamco et nostrud magna commodo nostrud maybe this should be longer ...
+# Jumping on the writers train
 
-~~Tilde~~
+<br />
 
-- List 1
-- LIst 2
-- LIst 3
-- LIst 4
+Commiting to writing articles that will live on, almost forever on the internet can be a pretty daunting task, especially for full time lead developer on an exciting project. But I have stired the waters and there is no going back now!
 
-[Wonk](https://wonk.com)
+<br />
+<br />
+
+## Why run a personal blog site
+
+<br />
+
+The short and simple answer is `Control`. Creating and managing a custom blog app on my personal website just seemed like a no brainer. Mostly because of the fact that I am one of those devs that require almost full control of the tools they choose to dedicate resources to.
+
+So building and managing my personal blog was a no brainer, instead of using blogging tools like, hashnode, medium, dev.to e.t.c.
+
+<br />
+<br />
+
+### Tools and resources used
+
+<br />
+
+- [MDX](https://mdxjs.com)
+- [Contentlayer](https://contentlayer.dev)
+- [Code hike](https://codehike.org)
+- [Nextjs](https://nextjs.org)
+
+<br />
+
+[MDX](https://mdxjs.com) is markdown with superpowers, with support for rendering jsx components, fetching dynamic data through API calls, highly customizable, powerful (Ooh I mentioned superpowers already 😅) and a lots more that you will obviously come to experience as an avide reader of my articles. 😉
+
+<br />
+
+[Contentlayer](https://contentlayer.dev) **is a content SDK that validates and transforms your content into type-safe JSON data you can easily import into your applicaton** - That was ripped right out of their website, but yeah as described its pretty awesome with great DX, and delivers on what it sets out to do. Although continuouse support for it might be suspended indefinately
+
+<br />
+
+[Code hike](https://codehike.org) is a syntax highlighter for mdx code blocks, works super well with contentlayer and has some of the coolest features of a syntax highlighter that I've ever seen. Don't believe me, checkout the code block below:
+
+```ts sample.ts showLineNumbers
+// Import FC type
+import type { FC, ReactNode } from "react";
+
+interface ISampleProps {
+  children: ReactNode;
+}
+const SampleComp: FC<ISampleProps> = ({ children }) => {
+  return (
+    <div>
+      <h1 className="text-lg font-medium text-wrap">This bout to be the coolest component on the block</h1>
+      {children}
+    </div>
+  );
+};
+
+export default SampleComp;
+
+```
+Now tell me that isn't cool 😎
+
+<br/>
+
+ And ofcourse [Nextjs](https://nextjs.org) ties everything together as our fullstack framework for building server rendered reactjs webapps. If this is your first time hearing about nextjs which I hope not, click on the link to learn more about it, its a pretty great framework.
+
+<br/>
+
+## What next?
+
+<br/>
+
+Its time to look forward to great articles first published on this site, before being published anywhere else, so subscribe to the newsletter if you haven't to keep up to date with all these awesomeness.
+
+<br/>
+
+I really hope this was a great first post, see you on the next one 👋
+
+[Github](https://github.com/afullsnack/personal) contains all the code/content for this article.
