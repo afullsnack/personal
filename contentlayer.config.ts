@@ -1,10 +1,5 @@
 // contentlayer config
-
-// import { defineConfig, s } from "velite";
-// import type { Route } from "next";
-// import type { Schema } from "velite";
 import { remarkCodeHike } from "@code-hike/mdx";
-// import rehypePrettyCode from "rehype-pretty-code";
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 // Export Article schema
@@ -17,7 +12,10 @@ const Post = defineDocumentType(() => ({
     date: { type: "date", required: true },
     description: { type: "string", required: true },
     author: { type: "string", required: true },
-    img: { type: "string", required: true },
+    authorPosition: { type: "string", required: true },
+    authorAvatar: { type: "string", required: false },
+    coverImg: { type: "string", required: true },
+    thumbImg: { type: "string", required: true },
     tags: {
       type: "list",
       required: false,
@@ -40,29 +38,6 @@ const Post = defineDocumentType(() => ({
       resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
     },
   },
-  // },
-  // mdx: {
-  //   remarkPlugins: [
-  //     [
-  //       remarkCodeHike,
-  //       {
-  //         theme: "dark-plus",
-  //         lineNumbers: true,
-  //         showCopyButton: true,
-  //         autoImport: true,
-  //       },
-  //     ],
-  //   ],
-  // rehypePlugins: [
-  //   [
-  //     rehypePrettyCode,
-  //     {
-  //       keepBackground: false,
-  //       theme: "one-dark-pro",
-  //     },
-  //   ],
-  // ],
-  // },
 }));
 
 export default makeSource({

@@ -1,28 +1,18 @@
-# Create T3 App
+# What is it?
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+This repo holds my personal webiste/portfolio with content hosting and managemnt as well as enables interested people to subscribe to my newsletter where I send out snippets and tit-bits around knowledge and experiences I came accross in the last 2 weeks.
 
-## What's next? How do I make an app with this?
+## How does it work?
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+The repo was scaffolded from the T3 stack, pioneered by Theo, if you're not familiar with it check it out its great for using nextjs fullstack capabilities to quickly get up and running.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## How is it deployed?
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+It is deployed to my hobby plan on vercel. I think vercel is pretty great and straight forward for handling deployments, especially nextjs application deployments. Of course it can handle deployments from other frameworks, like angular, vue, solid e.t.c.
 
-## Learn More
+With that said welcome to the repo holding the [afullsnack.dev](https://afullsnack.dev) website.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+I also publish on [dev.to](https://dev.to/@afullsnack). <br/>
+Write a couple twitter posts on [X.com](https://x.com/afullsnack).<br/>
+Do some youtube videos on [Youtube](https://www.youtube.com/@afullsnack).<br/>
+Also follow and check me out on [Github](https://github.com/afullsnack).
