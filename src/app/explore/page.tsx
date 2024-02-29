@@ -131,20 +131,30 @@ export default function ExplorePage() {
               sortedPosts.length > 3
                 ? sortedPosts
                     .splice(0, 3)
-                    .map(({ title, description, url, img }) => ({
+                    .map(({ title, description, url, thumbImg }) => ({
                       title,
                       description,
                       url,
                       icon: (
-                        <Image src={img} alt={title} width={32} height={32} />
+                        <Image
+                          src={thumbImg}
+                          alt={title}
+                          width={32}
+                          height={32}
+                        />
                       ),
                     }))
-                : sortedPosts.map(({ title, description, url, img }) => ({
+                : sortedPosts.map(({ title, description, url, thumbImg }) => ({
                     title,
                     description,
                     url,
                     icon: (
-                      <Image src={img} alt={title} width={32} height={32} />
+                      <Image
+                        src={thumbImg}
+                        alt={title}
+                        width={32}
+                        height={32}
+                      />
                     ),
                   }))
             }
