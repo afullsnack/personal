@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 import "@code-hike/mdx/dist/index.css";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Twitter } from "lucide-react";
 import { Inter } from "next/font/google";
@@ -56,6 +57,7 @@ export default function RootLayout({
           richColors
           closeButton
         />
+        <Analytics />
       </body>
     </html>
   );
