@@ -23,6 +23,18 @@ const formSchema = z.object({
   email: z.string().email("Input must be a valid email address"),
 });
 
+export interface SubscribeResponse {
+  success: boolean
+  id: string
+  email: string
+  subscribed: boolean
+  data: Record<string, any>,
+  createdAt: string
+  updatedAt: string
+}
+
+
+
 export default function NewsletterPage() {
   // 1. Define the form
   const form = useForm<z.infer<typeof formSchema>>({
@@ -35,16 +47,34 @@ export default function NewsletterPage() {
   });
 
   // 2. Define submit handler
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // ⏳ Do something with value when submitted
+    try {
 
-    toast("Submitted values", {
-      description: (
-        <pre className="mt-2 w-full rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    });
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ email: values.email }),
+      });
+
+      const json = await response.json() as SubscribeResponse;
+
+      if (json.success && json.subscribed) {
+        toast.success("You have been subscribed to the newsletter");
+
+      }
+
+    } catch (err: any) {
+      toast.error("Error occurred while subscribing user", {
+        description: (
+          <pre className="mt-2 w-full rounded-md flex bg-slate-950 p-4">
+            <p className="text-wrap flex-wrap w-full">{err.message ?? err.toString()}</p>
+          </pre>
+        ),
+      });
+
+    }
+
   }
 
   useEffect(() => {

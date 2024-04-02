@@ -1,4 +1,5 @@
 "use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
 import { MailCheck } from "lucide-react";
@@ -16,6 +17,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip";
+import { SubscribeResponse } from "~/app/newsletter/page";
 
 const formSchema = z.object({
   email: z.string().email("Input must be a valid email address"),
@@ -38,16 +40,35 @@ export function SubMailList({ title, subTitle }: ISubMailList) {
   });
 
   // 2. Define submit handler
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // ⏳ Do something with value when submitted
+    // TODO: integrate with the plunk api to subscribe users after entering email
+    try {
 
-    toast("Submitted values", {
-      description: (
-        <pre className="mt-2 w-full rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    });
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ email: values.email }),
+      });
+
+      const json = await response.json() as SubscribeResponse;
+
+      if (json.success && json.subscribed) {
+        toast.success("You have been subscribed to the newsletter");
+
+      }
+
+    } catch (err: any) {
+      toast.error("Error occurred while subscribing user", {
+        description: (
+          <pre className="mt-2 w-full rounded-md bg-slate-950 p-4">
+            <p>{err.message ?? err.toString()}</p>
+          </pre>
+        ),
+      });
+
+    }
+
   }
 
   useEffect(() => {
