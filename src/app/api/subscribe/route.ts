@@ -1,6 +1,6 @@
 
 export async function POST(request: Request) {
-  const jsonRequset = await request.json();
+  const jsonRequset = await request.json() as Record<string, any>;
 
   try {
     const { email } = jsonRequset as Record<string, any>;
