@@ -15,8 +15,11 @@ const config = {
     // Feel free to reconfigure them to your own preference.
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-interface": "off",
+
+    // Allow explicit `any`s
+    "@typescript-eslint/no-implicit-any": "off",
 
     "@typescript-eslint/consistent-type-imports": [
       "warn",
