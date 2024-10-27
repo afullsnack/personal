@@ -9,7 +9,7 @@ import { withContentlayer } from "next-contentlayer";
 
 /** @type {import("next").NextConfig} */
 export default withContentlayer({
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images: { unoptimized: true },
   // webpack: (config) => {
