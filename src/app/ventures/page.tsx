@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Badge } from "~/components/ui/badge";
 import { SubMailList } from "~/components/ui/sub-mail-list";
 
@@ -20,89 +21,96 @@ export default function VenturePage() {
         </div>
         <div className="mt-5 grid w-full items-start justify-start gap-10 lg:max-w-lg lg:gap-12">
           <Link
-            href="https://tambori.co"
+            href="https://cngn.co"
+            target="_blank"
             className="flex w-full items-center justify-start gap-4 shadow-sm"
           >
             <div className="aspect-video shrink-0">
-              {/* <Image
-                        width={40}
-                        height={40}
-                        className="h-10 w-10 rounded-lg border border-slate-600"
-                        src={profilePic}
-                        alt="ChitChat Logo"
-                      /> */}
-              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48"></div>
+              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48">
+                <Image
+                  width={40}
+                  height={40}
+                  className="size-full rounded-lg border border-slate-600 object-contain"
+                  src={`/assets/cNGN-icon.png`}
+                  alt="ChitChat Logo"
+                />
+              </div>
             </div>
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
-                <h3 className="text-sm font-normal">Tambori</h3>
-                <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  Bitcoin / Lightning infrastructure for institutions, startups
-                  and savvy individuals
+                <h3 className="text-md font-normal">cNGN (Compliant Naira</h3>
+                <p className="text-sm text-slate-900/60 dark:text-slate-300/60">
+                  The first of its kind, compliant naira stablecoin, designed to
+                  provide a secure and stable digital representation of the
+                  Nigerian Naira.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Bitcoin</Badge>
-                <Badge variant="secondary">Lightning</Badge>
-                <Badge variant="secondary">Infrastructure</Badge>
+                <Badge variant="secondary">Blockchain</Badge>
+                <Badge variant="secondary">Digital Assets</Badge>
+                {/* <Badge variant="secondary">Infrastructure</Badge> */}
               </div>
             </div>
           </Link>
           <Link
-            href="https://baggit.xyz"
+            href="https://useflintapi.vercel.app/"
+            target="_blank"
             className="flex w-full items-center justify-start gap-4 shadow-sm"
           >
             <div className="aspect-video shrink-0">
-              {/* <Image
-                        width={40}
-                        height={40}
-                        className="h-10 w-10 rounded-lg border border-slate-600"
-                        src={profilePic}
-                        alt="ChitChat Logo"
-                      /> */}
-              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48"></div>
+              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48">
+                <Image
+                  width={40}
+                  height={40}
+                  className="size-full rounded-lg border border-slate-600 object-contain"
+                  src={`/assets/flintapi-icon.png`}
+                  alt="ChitChat Logo"
+                />
+              </div>
             </div>
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
-                <h3 className="text-sm font-normal">Baggit</h3>
-                <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  A personal or multi-party multi-sig bitcoin / lightning
-                  savings and payments wallet
+                <h3 className="text-md font-normal">FlintAPI</h3>
+                <p className="text-sm text-slate-900/60 dark:text-slate-300/60">
+                  API first stablecoin infrastructure for the modern economy,
+                  enabling seamless transactions and financial inclusion.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Bitcoin</Badge>
+                <Badge variant="secondary">Infrastructure</Badge>
                 <Badge variant="secondary">Payment</Badge>
                 <Badge variant="secondary">Wallet</Badge>
               </div>
             </div>
           </Link>
           <Link
-            href="https://branded.tambori.co"
+            href="https://passry.com"
+            target="_blank"
             className="flex w-full items-center justify-start gap-4 shadow-sm"
           >
             <div className="aspect-video shrink-0">
-              {/* <Image
-                        width={40}
-                        height={40}
-                        className="h-10 w-10 rounded-lg border border-slate-600"
-                        src={profilePic}
-                        alt="ChitChat Logo"
-                      /> */}
-              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48"></div>
+              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48">
+                <Image
+                  width={40}
+                  height={40}
+                  className="size-full rounded-lg border border-slate-600 object-contain"
+                  src={`/assets/passry-logo.svg`}
+                  alt="Passry Logo"
+                />
+              </div>
             </div>
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
-                <h3 className="text-sm font-normal">Branded</h3>
+                <h3 className="text-sm font-normal">Passry</h3>
                 <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  Easily manage working with micro influencers to 10x your
-                  customer reach and secure your niche
+                  Passry is a digital platform for creating events, selling
+                  tickets, and managing access.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Merketing</Badge>
+                <Badge variant="secondary">Events</Badge>
                 <Badge variant="secondary">Ad</Badge>
-                <Badge variant="secondary">B2B</Badge>
+                <Badge variant="secondary">Ticketing</Badge>
               </div>
             </div>
           </Link>
