@@ -75,42 +75,36 @@ export default function ExplorePage() {
         <div className="mt-20 grid w-full items-start justify-start gap-6 lg:max-w-lg">
           <h3>New</h3>
           <Link
-            href="#"
+            href="https://passry.com"
             className="flex w-full items-center justify-start gap-4 shadow-sm"
           >
             <div className="aspect-video shrink-0">
-              {/* <Image
-                        width={40}
-                        height={40}
-                        className="h-10 w-10 rounded-lg border border-slate-600"
-                        src={profilePic}
-                        alt="ChitChat Logo"
-                      /> */}
-              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48"></div>
+              <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48">
+                <Image
+                  width={40}
+                  height={40}
+                  className="size-full rounded-lg border border-slate-600 object-contain"
+                  src={`/assets/passry-logo.svg`}
+                  alt="Passry Logo"
+                />
+              </div>
             </div>
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
               <div>
-                <h3 className="text-sm font-normal">New portfolio item</h3>
+                <h3 className="text-sm font-normal">Passry</h3>
                 <p className="text-xs text-slate-900/60 dark:text-slate-300/60">
-                  Long ass explanation of the portfolio item and all, portfolio,
-                  portfolio item and all item and all
+                  Passry is a digital platform for creating events, selling
+                  tickets, and managing access.
                 </p>
               </div>
               <Badge variant="secondary">Company</Badge>
             </div>
           </Link>
-          <Link
+          {/* <Link
             href="#"
             className="flex w-full items-center justify-start gap-4 shadow-sm"
           >
             <div className="aspect-video shrink-0">
-              {/* <Image
-                        width={40}
-                        height={40}
-                        className="h-10 w-10 rounded-lg border border-slate-600"
-                        src={profilePic}
-                        alt="ChitChat Logo"
-                      /> */}
               <div className="h-20 w-28 rounded-lg border border-slate-600 bg-zinc-900 md:h-36 md:w-48"></div>
             </div>
             <div className="grid place-items-start justify-between gap-4 md:gap-8">
@@ -123,7 +117,7 @@ export default function ExplorePage() {
               </div>
               <Badge variant="secondary">Product</Badge>
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className="mt-20 w-full">
           <CardList
