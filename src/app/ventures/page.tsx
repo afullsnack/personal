@@ -53,7 +53,7 @@ export default function VenturePage() {
             </div>
           </Link>
           <Link
-            href="https://useflintapi.vercel.app/"
+            href="https://flintapi.io/"
             target="_blank"
             className="flex w-full items-center justify-start gap-4 shadow-sm"
           >
